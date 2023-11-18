@@ -1,0 +1,68 @@
+ul li {
+    display: inline-block;
+    border-right: 1px solid black;
+    margin-left: 10px;
+    padding-right: 10px;
+}
+
+#gallery {
+    display: inline;
+}
+
+img {
+    border: yellow 5px solid;
+    width: 300px;
+    height: 220px;
+    margin: 10px;
+    padding: 5px;
+    background-color: yellow;
+    box-sizing: border-box;
+    border-right-style: inset;
+    border-right: 4px solid #F51720;
+
+}
+
+img:hover {
+    border: #12FFFF 5px solid;
+    width: 300px;
+    height: 220x;
+    margin: 10px;
+    box-sizing: border-box;
+    border-right-style: groove;
+}
+
+form {
+    display: block;
+    margin: 5px;
+    width: 300px;
+}
+
+input:focus {
+    border: black 2px solid;
+}
+
+button {
+    background-color: #3DA6A6;
+    border: black 1px solid;
+    width: 403px;
+    margin: 0px;
+    height: 23px;
+}
+
+input {
+    display: block;
+    margin: 0px;
+    width: 395px;
+    height: 20px;
+
+}
+
+#register-form {
+    margin-top: 5px;
+    border-top: 5px solid #4C5270;
+    width: 403px;
+}
+
+#register-form input {
+    margin-bottom: 5px;
+}

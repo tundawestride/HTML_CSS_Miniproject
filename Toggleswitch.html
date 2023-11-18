@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Toggle switch turtorial</title>
+    <style>
+        input[type="checkbox"] {
+            display: none
+        }
+
+        .switch {
+            display: flex;
+            width: 120px;
+            height: 64px;
+
+        }
+
+        .slider {
+            flex: 1;
+            border-radius: 36px;
+            border: 4px solid gray;
+
+            background-color: white;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .circle {
+            display: block;
+            content: "";
+            width: 58px;
+            height: 58px;
+            margin-top: -3px;
+            margin-left: -4px;
+            border-radius: 58px;
+            border: 2px solid grey;
+
+            background-color: rgb(184, 88, 139);
+            transition: all 0.4s ease-in-out;
+            box-shadow: opx 2px 8px -2px rgba(0, 0, 0, 0.3)
+        }
+
+        input[type="checkbox"]:checked+.slider {
+            background-color: deepskyblue;
+            border-color: transparent;
+        }
+
+        input[type="checkbox"]:checked+.slider>.circle {
+            transform: translateX(90%);
+            border-color: transparent;
+        }
+    </style>
+
+</head>
+
+<body>
+    <label class="switch">
+        <input type="checkbox" />
+        <div class="slider">
+            <div class="circle"></div>
+    </label>
+</body>
+
+</html>

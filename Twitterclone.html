@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter 1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100%;
+            margin: 0;
+            background-color: black;
+        }
+
+        .side-bar {
+            display: flex;
+            flex: 1;
+            justify-content: flex-end;
+            padding: 8px 8px;
+        }
+
+        .search-trends {
+            flex: 1;
+            justify-content: flex-start;
+
+        }
+
+        .Tweet-btn {
+            color: blue;
+        }
+
+        .profile-sec {
+            color: aqua;
+        }
+
+        .side-bar-container,
+        .search-trends-container {
+            width: 250px;
+            padding: 0 16px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-trends-container {
+            display: flex;
+            flex-direction: column;
+            width: 290px;
+            margin-left: 40px;
+            margin-bottom: 12px;
+            margin-top: 10px;
+        }
+
+        .search-box {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+        }
+
+        .search-box-container {
+            display: flex;
+            flex-direction: row;
+            height: 30px;
+            align-items: center;
+            margin-left: 12px;
+            margin-top: 6px;
+            align-content: center;
+        }
+
+        .search-box-container [type="text"] {
+            height: 42px;
+            padding-left: 10px;
+        }
+
+        .trends-for-you {
+            margin-top: 20px;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+            position: relative;
+            color: #FFFFFF;
+            background-color: #2c2d2e;
+            border-radius: 16px;
+        }
+
+        .trends-for-you>h2 {
+            margin-left: 20px;
+        }
+
+        .whotofollow-header>h2 {
+            margin-left: 20px;
+        }
+
+        .who-to-follow {
+            margin-top: 20px;
+            width: 100%;
+            height: 400px;
+            flex-direction: column;
+            position: relative;
+            color: #FFFFFF;
+            background-color: #2c2d2e;
+            border-radius: 16px;
+        }
+
+        .trend-list-group {
+            display: flex;
+            flex-direction: column;
+            padding: 12px 16px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+        }
+
+        .trend-list-group>span:nth-of-type(2) {
+            font-weight: bolder;
+            color: #FFFFFF;
+            font-size: 16px;
+        }
+
+        .show-more,
+        .show-more-to-follow {
+            color: rgb(29, 155, 240);
+            padding: 16px 16px;
+        }
+
+        .show-more:hover {
+            color: rgb(16, 83, 128);
+            cursor: pointer;
+        }
+
+        .show-more-to-follow:hover {
+            color: rgb(16, 83, 128);
+            cursor: pointer;
+        }
+
+        .who-to-follow {
+            color: white;
+        }
+
+        .user-to-follow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: none;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: row;
+            font-size: small;
+        }
+
+        .username-tofollow>span:first-child {
+            font-weight: bolder;
+            font-size: 16px;
+        }
+
+        .username-tofollow>span:nth-child(2) {
+            font-weight: normal;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .username-and-img {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .follow-button {
+            width: 77px;
+            height: 25px;
+            padding: 0px 16px;
+            border-radius: 20px;
+            display: flex;
+            justify-items: center;
+            justify-content: center;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .footer-link {
+            display: inline-block;
+            margin-top: 16px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 12px;
+            margin-bottom: 16px;
+            padding-bottom: 20px;
+        }
+
+        .footer-link-con>a {
+            margin-right: 8px;
+            margin-left: 10px;
+            display: inline-block;
+            margin-top: 6px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 58px;
+            padding: 4px 0;
+            margin: 3px;
+        }
+
+        .nav-menu>.menu-group>span {
+
+            margin-left: 20px;
+            color: white;
+        }
+
+        .menu-group {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+        }
+
+        .menu-group:hover {
+            display: flex;
+            align-items: center;
+            background-color: gray;
+            border-radius: 24px;
+            cursor: pointer;
+        }
+
+        .Tweet-btn {
+            height: 52px;
+            width: 200px;
+            padding: 0 12px;
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 52px;
+            background-color: #1A8CD8;
+            color: white;
+            border: none;
+        }
+
+        .Tweet-btn:hover {
+            height: 52px;
+            width: 200px;
+            padding: 0 12px;
+            margin: 16px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 52px;
+            background-color: royalblue;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+
+        .profile-sec {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            flex: 1;
+            color: #1A8CD8;
+        }
+
+        .profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 12px;
+            height: 64px;
+            width: 100%;
+            margin: 12px 0;
+            border-radius: 10px;
+            background-color: bisque;
+
+        }
+
+        .profile:hover {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 12px;
+            height: 64px;
+            width: 100%;
+            margin: 12px 0;
+            border-radius: 10px;
+            background-color: burlywood;
+            cursor: pointer;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 16px 0px;
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .title {
+            display: flex;
+            height: 53px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .title:hover {
+            display: flex;
+            height: 53px;
+            width: 100%;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .tweet-section {
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0px 16px;
+
+        }
+
+        .profile-img {
+            width: 48px;
+            height: 100px;
+            margin-right: 12px;
+            padding-top: 4px;
+        }
+
+        .write {
+            flex: 1;
+        }
+
+        .image {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: cadetblue
+        }
+
+        input[type="text"] {
+            width: 100%;
+            border: none;
+            outline: none;
+            height: 52px;
+            background-color: transparent;
+        }
+
+        .icon-section {
+            display: flex;
+            height: 48px;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2px 2px;
+            background-color: transparent;
+        }
+
+        button[type="submit"] {
+            border-radius: 15%;
+            width: 65px;
+            height: 40px;
+            border: none;
+            background-color: #1A8CD8;
+            color: white;
+        }
+
+        .title {
+            padding: 16px 16px;
+            color: white;
+        }
+
+        .feed {
+            color: white;
+            display: flex;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .feed-content {
+            flex: 1;
+            position: relative;
+        }
+
+        .feed .profile-img,
+        .user-to-follow-profile-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: cadetblue;
+            margin: 12px 12px;
+        }
+
+        .user-name {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .user-name>span {
+            opacity: 0.5;
+        }
+
+        .text-content {
+            color: white;
+            font-size: 14px;
+        }
+
+        .img-content {
+            width: 380px;
+            height: 446px;
+            background-color: coral;
+            border-radius: 16px;
+            margin-top: 12px;
+            padding-top: 12px;
+            margin-right: 20px;
+        }
+
+        .action-impess-group {
+            display: flex;
+            justify-content: space-between;
+            width: 380px;
+            margin-top: 2px;
+            padding: 5px 1px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .more-button {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            z-index: 99;
+            top: 0;
+            right: 0;
+            margin: 12px 12px;
+            padding: 1px 1px;
+        }
+
+        .more-button:hover {
+            background-color: transparent;
+            border: none;
+            position: absolute;
+            z-index: 99;
+            top: 0;
+            right: 0;
+            margin: 12px 12px;
+            padding: 1px 1px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="side-bar">
+        <div class="side-bar-container">
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/twitter.svg" />
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/home.svg" />
+                    <span>Home</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/explore.svg" />
+                    <span>Explore</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/notifications.svg" />
+                    <span>Notifications</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/messages.svg" />
+                    <span>Messages</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/bookmarks.svg" />
+                    <span>Bookmarks</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/lists.svg" />
+                    <span>Lists</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/profile.svg" />
+                    <span>Profile</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <div class="menu-group">
+                    <img src="/Website responsive/TwitterIcon/more.svg" />
+                    <span>More</span>
+                </div>
+            </div>
+
+            <div class="Tweet-btn">
+                Tweet
+            </div>
+
+            <div class="profile-sec">
+                <div class="profile">Profile section</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="content">
+        <div class="title">
+            Home
+        </div>
+        <div class="tweet-section">
+            <div class="profile-img">
+                <div class="image"></div>
+            </div>
+            <div class="write">
+                <div class="write-text"><input type="text" placeholder="What's happening" /></div>
+                <div class="icon-section">
+                    <div class="icon">
+                        <img src="/Website responsive/TwitterIcon/media.svg" />
+                        <img src="/Website responsive/TwitterIcon/gif.svg" />
+                        <img src="/Website responsive/TwitterIcon/pole.svg" />
+                        <img src="/Website responsive/TwitterIcon/emoji.svg" />
+                        <img src="/Website responsive/TwitterIcon/schedule.svg" />
+                        <img src="/Website responsive/TwitterIcon/location.svg" />
+                    </div>
+                    <button type="submit">Tweet
+                </div>
+            </div>
+        </div>
+
+        <div class="feed">
+            <div class="profile-img"></div>
+            <div class="feed-content">
+                <button class="more-button">
+                    <img src="/Website responsive/TwitterIcon/more.svg" />
+                </button>
+                <div class="user-name">Nice kicks <img src="/Website responsive/TwitterIcon/verify.svg" />
+                    <span>@nice kicks</span>
+                </div>
+                <div class="text-content">Some content</div>
+                <div class="img-content"></div>
+                <div class="action-impess-group">
+                    <div class="action-impress">
+                        <img src="/Website responsive/TwitterIcon/comment.svg" />
+                        <span class="im-running-number">99</span>
+                    </div>
+
+                    <div class="action-impress">
+                        <img src="/Website responsive/TwitterIcon/retweet.svg" />
+                        <span class="im-running-number">99</span>
+                    </div>
+
+                    <div class="action-impress">
+                        <img src="/Website responsive/TwitterIcon/like.svg" />
+                        <span class="im-running-number">99</span>
+                    </div>
+
+                    <div class="action-impress">
+                        <img src="/Website responsive/TwitterIcon/share.svg" />
+                        <span class="im-running-number">99</span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="search-trends">
+
+        <div class="search-trends-container">
+
+            <div class="search-box">
+                <div class="search-box-container">
+                    <div><img src="/Website responsive/TwitterIcon/search.svg" /></div>
+                    <div><input type="text" placeholder="Search twitter" /></div>
+                </div>
+            </div>
+
+            <div class="trends-for-you">
+                <h2>Trends for you</h2>
+                <button class="more-button">
+                    <img src="/Website responsive/TwitterIcon/more.svg" />
+                </button>
+                <div class="trend-list">
+                    <div class="trend-list-group">
+                        <span>Trending in Thailand</span>
+                        <span>#CSSownsome</span>
+                        <span>9999K Tweets</span>
+                    </div>
+                </div>
+                <div class="trend-list">
+                    <div class="trend-list-group">
+                        <span>Trending in Thailand</span>
+                        <span>#CSSownsome</span>
+                        <span>9999K Tweets</span>
+                    </div>
+                </div>
+                <div class="trend-list">
+                    <div class="trend-list-group">
+                        <span>Trending in Thailand</span>
+                        <span>#CSSownsome</span>
+                        <span>9999K Tweets</span>
+                    </div>
+                </div>
+                <div class="trend-list">
+                    <div class="trend-list-group">
+                        <span>Trending in Thailand</span>
+                        <span>#CSSownsome</span>
+                        <span>9999K Tweets</span>
+                    </div>
+                </div>
+                <div class="trend-list">
+                    <div class="trend-list-group">
+                        <span>Trending in Thailand</span>
+                        <span>#CSSownsome</span>
+                        <span>9999K Tweets</span>
+                    </div>
+                </div>
+                <div class="show-more">
+                    <div>Show more</div>
+                </div>
+            </div>
+
+            <div class="who-to-follow">
+                <div class="whotofollow-header">
+                    <h2>Who to Follow</h2>
+                </div>
+                <div class="user-to-follow">
+                    <div class="username-and-img">
+                        <div class="user-to-follow-profile-img"></div>
+                        <div class="username-tofollow">
+                            <span>User 2</span>
+                            <span><img src="/Website responsive/TwitterIcon/verify.svg" /></span>
+                            <div>@X follow U</div>
+                        </div>
+                    </div>
+                    <button class="follow-button">Follow
+                </div>
+
+                <div class="user-to-follow">
+                    <div class="username-and-img">
+                        <div class="user-to-follow-profile-img"></div>
+                        <div class="username-tofollow">
+                            <span>User 2</span>
+                            <span><img src="/Website responsive/TwitterIcon/verify.svg" /></span>
+                            <div>@X follow U</div>
+                        </div>
+                    </div>
+                    <button class="follow-button">Follow
+                </div>
+
+                <div class="user-to-follow">
+                    <div class="username-and-img">
+                        <div class="user-to-follow-profile-img"></div>
+                        <div class="username-tofollow">
+                            <span>User 2</span>
+                            <span><img src="/Website responsive/TwitterIcon/verify.svg" /></span>
+                            <div>@X follow U</div>
+                        </div>
+                    </div>
+                    <button class="follow-button">Follow
+                </div>
+                <div class="show-more-to-follow">Show more to follow</div>
+            </div>
+
+            <div class="footer-link">
+                <div class="footer-link-con">
+                    <a>Terms of Service</a>
+                    <a>Privacy Policy</a>
+                    <a>Cookie Policy</a>
+                    <a>Accessibility</a>
+                    <a>Ads info</a>
+                    <a>More</a>
+                    <span class="copyright">© 2023 Twitter, Inc.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

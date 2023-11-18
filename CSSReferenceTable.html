@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Project I</title>
+    <link rel="icon"
+        href="https://static.coassemble.com/upload/26836/image/bc290f4a-687c-42b9-b025-df32d2bd41bb/favicon-32x32.png" />
+    <link rel="stylesheet" type="text/css" href="CSSReferenceTable.css" />
+</head>
+
+<body>
+    <h1><u>CSS Selector, Combinators, Combine Reference</u></h1>
+    <h2>Table Selector</h2>
+    <div>
+        <table align="center" width=“80%”>
+            <thead>
+                <tr>
+                    <th>Tag</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td class="tagname"><mark>#nameid</mark></td>
+                    <td class="tagnamegeneral">id</td>
+                    <td class="tagdes">Selects the element with a specific id. You can also combine the ID selector with
+                        the type
+                        selector.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>.nameclass { }</mark></td>
+                    <td class="tagnamegeneral">class</td>
+                    <td class="tagdes">Select elements by their class</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>* { }</mark></td>
+                    <td class="tagnamegeneral">Universal</td>
+                    <td class="tagdes">Select everything!</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>A { }</mark></td>
+                    <td class="tagnamegeneral">Element name</td>
+                    <td class="tagdes">Select the element selector by name that element directly</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>a[target=”value”] { }</mark></td>
+                    <td class="tagnamegeneral">Attribute Value Selector</td>
+                    <td class="tagdes">Select all elements that have a specific attribute value</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2>Table Combinators</h2>
+    <div>
+        <table align="center" width=“80%”>
+            <thead>
+                <tr>
+                    <th>Tag</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tagname"><mark>A, B</mark></td>
+                    <td class="tagnamegeneral">Comma Combinator</td>
+                    <td class="tagdes">Combine, selectors, with... commas!</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>A + B</mark></td>
+                    <td class="tagnamegeneral">Adjacent Sibling Selector</td>
+                    <td class="tagdes">Select an element that directly follows another element</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>A ~ B</mark></td>
+                    <td class="tagnamegeneral">General Sibling Selector</td>
+                    <td class="tagdes">Select elements that follows another element</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>A > B</td></mark>
+                    <td class="tagnamegeneral">Child Selector</td>
+                    <td class="tagdes">Select direct children of an element</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>A B</mark></td>
+                    <td class="tagnamegeneral">Descendant Selector</td>
+                    <td class="tagdes">Select an element inside another element</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <h2>Table Combine Selectors</h2>
+    <div>
+        <table align="center" width=“80%”>
+            <thead>
+                <tr>
+                    <th>Tag</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tagname"><mark>A.className</mark></td>
+                    <td class="tagnamegeneral">Combine the Class Selector</td>
+                    <td class="tagdes">You can combine the class selector with other selectors, like the type selector.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>A *</mark></td>
+                    <td class="tagnamegeneral">Combine the Universal Selector</td>
+                    <td class="tagdes">This selects all elements inside of A.</td>
+                </tr>
+                <tr>
+                    <td class="tagname"><mark>#id A</mark></td>
+                    <td class="tagnamegeneral">Combine the Descendant & ID Selectors</td>
+                    <td class="tagdes">You can combine any selector with the descendent selector.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

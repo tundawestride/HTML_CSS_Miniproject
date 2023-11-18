@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>HTML animation move</title>
+    <style>
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box {
+            width: 450px;
+            height: 450px;
+            margin: 200px;
+            border: solid 3.5em blue;
+            border-bottom: solid 3.5em red;
+            z-index: 1;
+            border-radius: 50%;
+            animation: spin 5s ease-out 5s infinite linear;
+        }
+
+        div.insidebox {
+            background-color: chartreuse;
+            margin: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="insidebox">hey</div>
+
+</body>
+
+</html>

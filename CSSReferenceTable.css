@@ -1,0 +1,58 @@
+* {
+    background-color: papayawhip;
+}
+
+h2 {
+    color: chocolate;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    border-style: ridge;
+    width: 70%;
+}
+
+th,
+td {
+    border: 2px solid green;
+    border-collapse: collapse;
+}
+
+div th {
+    background-color: lightyellow;
+    color: green;
+    font-weight: bold;
+}
+
+td {
+    color: chocolate;
+}
+
+.tagname {
+    background-color: floralwhite;
+    color: green;
+    table-layout: fixed;
+    width: 100px;
+    font-size: large;
+}
+
+td {
+    border-inline: 2px solid papayawhip;
+    width: 30%;
+
+}
+
+th {
+    border-inline: 2px solid papayawhip;
+    width: 10%;
+    font-size: larger;
+}
+
+mark {
+    background-color: lightyellow;
+}
