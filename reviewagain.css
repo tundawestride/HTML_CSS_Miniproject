@@ -1,0 +1,41 @@
+/* * {
+    background-color: beige;
+} */
+
+#container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: auto;
+    background-color: aquamarine;
+    border: 2px solid black;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.left {
+    width: 150px;
+    height: 250px;
+}
+
+.right {
+    width: 150px;
+    height: 250px;
+}
+
+.box div {
+    /* border: 5px solid grey; */
+    margin: 2px;
+    padding: 2px;
+    width: 100px;
+    height: 90px;
+    background-color: antiquewhite;
+    border: 5px solid grey;
+}
